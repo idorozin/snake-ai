@@ -8,7 +8,9 @@ let h;
 function setup() {
   w = 6; 
   h = 6;
-  createCanvas(scaleBy * w, scaleBy * h);
+  scaleBy = min(100, windowWidth / w / 1.5);
+  var c = createCanvas(scaleBy * w, scaleBy * h);
+  c.parent('canvas-container');
   frameRate(20);
   snake = new Snake();
   ai = new AI(snake);
