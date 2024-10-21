@@ -1,7 +1,7 @@
 # Snake AI - Hamiltonian Cycle
 Hamiltonian cycle is a path in a graph that visits each vertex exactly once and returns to the starting point. In the context of the snake game, if the snake follows a Hamiltonian cycle, it can continue indefinitely without colliding with itself. 
 The AI aims to find a Hamiltonian cycle by identifying the longest path between the snake’s starting position and an adjacent position (a one-step distance away). On even-sized grids, this path covers all the cells on the board, effectively creating a Hamiltonian cycle. 
-A [DEMO](https://idorozin.github.io/snake-ai/) is available 
+[Click To Try The DEMO](https://idorozin.github.io/snake-ai/) 
 
 <img src="https://github.com/user-attachments/assets/74878245-b049-4b62-9fc1-f732d051918d" alt="Animation" width="300" height="300">
 
