@@ -8,3 +8,6 @@ The AI aims to find a Hamiltonian cycle by identifying the longest path between 
 
 # P5.js
 This project is built using p5.js, a JavaScript library designed for creative coding, visualization, and interactive art. The p5.js framework simplifies rendering and animation, making it a great tool for visual projects like this.
+
+![image](https://github.com/user-attachments/assets/09ebf810-7e1d-4e6a-bd1e-94d88f068d11)
+
