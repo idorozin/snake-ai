@@ -3,6 +3,7 @@ class AI {
     this.snake = snake;
     this.step = 0;
     this.path = [];
+    this.cache = {}; 
   }
 
   findHamiltonianCycle(startX, startY, endX, endY) {
@@ -49,9 +50,25 @@ class AI {
 
 
   calculatePath() {
-    let paths = this.findHamiltonianCycle(this.snake.body[0].x, this.snake.body[0].y, this.snake.body[0].x - 1, this.snake.body[0].y);
-    console.log(paths);
-    this.path = paths[Math.floor(Math.random() * paths.length)];
+    const startX = this.snake.body[0].x;
+    const startY = this.snake.body[0].y;
+    const endX = startX - 1;
+    const endY = startY;
+
+    const cacheKey = `${startX},${startY}-${endX},${endY}`;
+
+    if (this.cache[cacheKey]) {
+      console.log("Using cached path.");
+      this.path = this.cache[cacheKey];
+    } else {
+      console.log("Calculating new path.");
+      let paths = this.findHamiltonianCycle(startX, startY, endX, endY);
+      if (paths.length > 0) {
+        this.path = paths[Math.floor(Math.random() * paths.length)];
+        this.cache[cacheKey] = [...this.path];
+      }
+    }
+
     this.path = [...this.path, [1, 0]];
   }
 
@@ -64,5 +81,10 @@ class AI {
     } else {
       console.warn("Path step exceeded or no valid path set.");
     }
+  }
+
+  reset(snake) {
+    this.snake = snake;
+    this.step = 0;
   }
 }

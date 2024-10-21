@@ -15,7 +15,7 @@ function setup() {
   c.parent('canvas-container');
   frameRate(20);
   createControls();
-  snake = new Snake();
+  snake = new Snake(5, 5);
   ai = new AI(snake);
   ai.calculatePath();
   newApple();
@@ -29,7 +29,7 @@ function createControls() {
   var speedLable = createP("Speed: ");
   speedSlider = createSlider(1, 60, 5);
   var spacingLable = createP("Spacing: ");
-  spacingSlider = createSlider(1, scaleBy - 1, 0);
+  spacingSlider = createSlider(0, scaleBy - 1, 0);
   resetButton.parent('controls');
   speedLable.parent('controls');
   speedSlider.parent('controls');
@@ -41,7 +41,7 @@ function createControls() {
 
 function reset() {
   snake = new Snake();
-  ai = new AI(snake);
+  ai.reset(snake);
   ai.calculatePath();
   newApple();
   loop();

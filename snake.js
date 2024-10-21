@@ -1,7 +1,18 @@
 class Snake {
-  constructor() {
+  constructor(x, y) {
+    if (x !== undefined && y !== undefined) {
+      this.initializeBody(x, y);
+    } else {
+      // this way we can priotize positions that produce the intresting paths
+      let positions = [[3, 3], [3, 3], [3, 3], [3, 3], [5, 3], [5, 5], [5, 1], [3, 1], [5, 2], [3, 5], [3, 4], [2, 5], [2, 4], [2, 3]];
+      let rnd = random(positions);  // Select a random position
+      this.initializeBody(rnd[0], rnd[1]);
+    }
+  }
+
+  initializeBody(x, y) {
     this.body = [];
-    this.body[0] = createVector(floor(w / 2), floor(h / 2));
+    this.body[0] = createVector(x, y);
     this.dirX = 0;
     this.dirY = 0;
     this.growing = false;
