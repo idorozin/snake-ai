@@ -29,7 +29,7 @@ function createControls() {
   var speedLable = createP("Speed: ");
   speedSlider = createSlider(1, 60, 5);
   var spacingLable = createP("Spacing: ");
-  spacingSlider = createSlider(0, scaleBy - 1, 0);
+  spacingSlider = createSlider(0, scaleBy - 10, 0);
   resetButton.parent('controls');
   speedLable.parent('controls');
   speedSlider.parent('controls');
