@@ -61,31 +61,40 @@ class Snake {
   }
 
   show() {
-    let fade = false;
     let a = 255 / (this.body.length - 1);
     for (let i = 0; i < this.body.length - 1; i++) {
-      if(fade){
-          fill(0, 0, 0, (i + 1) * a);
+      if (fade) {
+        fill(0, 0, 0, (i + 1) * a);
       }
-      else{
+      else {
         fill(0);
       }
       noStroke();
       rect(
-        this.body[i].x * scaleBy,
-        this.body[i].y * scaleBy,
-        scaleBy,
-        scaleBy
+        (this.body[i].x * scaleBy) + (spacing / 2),
+        (this.body[i].y * scaleBy) + (spacing / 2),
+        scaleBy - spacing,
+        scaleBy - spacing
       );
     }
     fill(0, 191, 255);
     noStroke();
     rect(
-      this.body[this.body.length - 1].x * scaleBy,
-      this.body[this.body.length - 1].y * scaleBy,
-      scaleBy,
-      scaleBy
+      (this.body[this.body.length - 1].x * scaleBy) + (spacing / 2),
+      (this.body[this.body.length - 1].y * scaleBy) + (spacing / 2),
+      scaleBy - spacing,
+      scaleBy - spacing
     );
+    if (skeleton) {
+      stroke(0, 255, 0);
+      strokeWeight(2);
+      for (let i = 1; i < this.body.length; i++) {
+        line(
+          this.body[i - 1].x * scaleBy + (scaleBy / 2), this.body[i - 1].y * scaleBy + (scaleBy / 2),
+          this.body[i].x * scaleBy + (scaleBy / 2), this.body[i].y * scaleBy + (scaleBy / 2),
+        );
+      }
+    }
   }
 
   print() {
